@@ -1,63 +1,161 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <link rel="shortcut icon" href="../images/favicon.ico"/>
-    <title>Livo</title>
-    <link rel='stylesheet' 
-      type='text/css'
-      media='screen'
-      href='../css/style.css'/>
-    <link rel='stylesheet' 
-      type='text/css'
-      media='screen'
-      href='../css/annotorious-dark.css'/>
-    <script src="../js/openseadragon.min.js"></script>
-    <script src="../js/annotorious.min.js"></script>
-    <script src="../js/jquery-1.9.0.min.js"></script>
-  </head>
-  <body>
-    <div class="demoarea"> 
-      <div id="openseadragon" class="openseadragon">
-      </div>
-      <button onclick="anno.activateSelector();" href="#">
+   <head>
+      <meta charset='utf-8'>
+      <link rel="shortcut icon" href="../images/favicon.ico"/>
+      <title>Livo</title>
+      <link rel='stylesheet' 
+         type='text/css'
+         media='screen'
+         href='../css/style.css'/>
+      <link rel='stylesheet' 
+         type='text/css'
+         media='screen'
+         href='../css/annotorious-dark.css'/>
+      <script src="../js/openseadragon.min.js"></script>
+      <script src="../js/annotorious.min.js"></script>
+      <script src="../js/jquery-1.9.0.min.js"></script>
+   </head>
+   <body>
+      <div class="demoarea">
+         <div id="openseadragon" class="openseadragon">
+         </div>
+         <button onclick="anno.activateSelector();" href="#">
          ADD ANNOTATION
-      </button>
-    </div>
-    <script type="text/javascript">
-      function annotate() {
-        var button = document.getElementById('map-annotate-button');
-        button.style.color = '#777';
-        anno.activateSelector(function() {
-          button.style.color = '#fff';
+         </button>
+      </div>
+      <script type="text/javascript">
+         var imageData = [
+          {
+            filesUrl: '../tiles/tiles1_files/',
+            xml: '<?xml version="1.0" encoding="utf-8"?><Image TileSize="256" Overlap="2" Format="jpg" xmlns="http://schemas.microsoft.com/deepzoom/2009"><Size Height="960" Width="1280"/></Image>'
+          },
+          {
+            filesUrl: '../tiles/tiles2_files/',
+            xml: '<?xml version="1.0" encoding="utf-8"?><Image TileSize="256" Overlap="2" Format="jpg" xmlns="http://schemas.microsoft.com/deepzoom/2009"><Size Height="960" Width="1280"/></Image>'
+          },
+          {
+            filesUrl: '../tiles/tiles3_files/',
+            xml: '<?xml version="1.0" encoding="utf-8"?><Image TileSize="256" Overlap="2" Format="jpg" xmlns="http://schemas.microsoft.com/deepzoom/2009"><Size Height="960" Width="1280"/></Image>'
+          },
+          {
+            filesUrl: '../tiles/tiles4_files/',
+            xml: '<?xml version="1.0" encoding="utf-8"?><Image TileSize="256" Overlap="2" Format="jpg" xmlns="http://schemas.microsoft.com/deepzoom/2009"><Size Height="960" Width="1280"/></Image>'
+          },
+          {
+            filesUrl: '../tiles/tiles5_files/',
+            xml: '<?xml version="1.0" encoding="utf-8"?><Image TileSize="256" Overlap="2" Format="jpg" xmlns="http://schemas.microsoft.com/deepzoom/2009"><Size Height="960" Width="1280"/></Image>'
+          },
+          {
+            filesUrl: '../tiles/tiles6_files/',
+            xml: '<?xml version="1.0" encoding="utf-8"?><Image TileSize="256" Overlap="2" Format="jpg" xmlns="http://schemas.microsoft.com/deepzoom/2009"><Size Height="960" Width="1280"/></Image>'
+          },
+          {
+            filesUrl: '../tiles/tiles7_files/',
+            xml: '<?xml version="1.0" encoding="utf-8"?><Image TileSize="256" Overlap="2" Format="jpg" xmlns="http://schemas.microsoft.com/deepzoom/2009"><Size Height="960" Width="1280"/></Image>'
+          },
+          {
+            filesUrl: '../tiles/tiles8_files/',
+            xml: '<?xml version="1.0" encoding="utf-8"?><Image TileSize="256" Overlap="2" Format="jpg" xmlns="http://schemas.microsoft.com/deepzoom/2009"><Size Height="960" Width="1280"/></Image>'
+          },
+          {
+            filesUrl: '../tiles/tiles9_files/',
+            xml: '<?xml version="1.0" encoding="utf-8"?><Image TileSize="256" Overlap="2" Format="jpg" xmlns="http://schemas.microsoft.com/deepzoom/2009"><Size Height="960" Width="1280"/></Image>'
+          },
+          {
+            filesUrl: '../tiles/tiles10_files/',
+            xml: '<?xml version="1.0" encoding="utf-8"?><Image TileSize="256" Overlap="2" Format="jpg" xmlns="http://schemas.microsoft.com/deepzoom/2009"><Size Height="960" Width="1280"/></Image>'
+          },
+          {
+            filesUrl: '../tiles/tiles11_files/',
+            xml: '<?xml version="1.0" encoding="utf-8"?><Image TileSize="256" Overlap="2" Format="jpg" xmlns="http://schemas.microsoft.com/deepzoom/2009"><Size Height="960" Width="1280"/></Image>'
+          },
+          {
+            filesUrl: '../tiles/tiles12_files/',
+            xml: '<?xml version="1.0" encoding="utf-8"?><Image TileSize="256" Overlap="2" Format="jpg" xmlns="http://schemas.microsoft.com/deepzoom/2009"><Size Height="960" Width="1280"/></Image>'
+          },
+          {
+            filesUrl: '../tiles/tiles13_files/',
+            xml: '<?xml version="1.0" encoding="utf-8"?><Image TileSize="256" Overlap="2" Format="jpg" xmlns="http://schemas.microsoft.com/deepzoom/2009"><Size Height="960" Width="1280"/></Image>'
+          },
+          {
+            filesUrl: '../tiles/tiles14_files/',
+            xml: '<?xml version="1.0" encoding="utf-8"?><Image TileSize="256" Overlap="2" Format="jpg" xmlns="http://schemas.microsoft.com/deepzoom/2009"><Size Height="960" Width="1280"/></Image>'
+          },
+          {
+            filesUrl: '../tiles/tiles15_files/',
+            xml: '<?xml version="1.0" encoding="utf-8"?><Image TileSize="256" Overlap="2" Format="jpg" xmlns="http://schemas.microsoft.com/deepzoom/2009"><Size Height="960" Width="1280"/></Image>'
+          },
+          {
+            filesUrl: '../tiles/tiles16_files/',
+            xml: '<?xml version="1.0" encoding="utf-8"?><Image TileSize="256" Overlap="2" Format="jpg" xmlns="http://schemas.microsoft.com/deepzoom/2009"><Size Height="960" Width="1280"/></Image>'
+          },
+          {
+            filesUrl: '../tiles/tiles17_files/',
+            xml: '<?xml version="1.0" encoding="utf-8"?><Image TileSize="256" Overlap="2" Format="jpg" xmlns="http://schemas.microsoft.com/deepzoom/2009"><Size Height="960" Width="1280"/></Image>'
+          },
+          {
+            filesUrl: '../tiles/tiles18_files/',
+            xml: '<?xml version="1.0" encoding="utf-8"?><Image TileSize="256" Overlap="2" Format="jpg" xmlns="http://schemas.microsoft.com/deepzoom/2009"><Size Height="960" Width="1280"/></Image>'
+          },
+         ];
+         
+         // This converts the XML into a DZI tile source specification object that OpenSeadragon understands.
+         var tileSourceFromData = function(data, filesUrl) {
+           var $xml = $($.parseXML(data));
+           var $image = $xml.find('Image');
+           var $size = $xml.find('Size');
+         
+           var dzi = {
+             Image: {
+               xmlns: $image.attr('xmlns'),
+               Url: filesUrl,
+               Format: $image.attr('Format'),
+               Overlap: $image.attr('Overlap'),
+               TileSize: $image.attr('TileSize'),
+               Size: {
+                  Height: $size.attr('Height'),
+                  Width: $size.attr('Width')
+               }
+             }
+           };  
+           
+           console.log(dzi);
+           return dzi;
+         };
+         
+        var tileSources = imageData.map(function(image) {
+          return tileSourceFromData(image.xml, image.filesUrl);
         });
-      }
-
-      anno.addHandler('onAnnotationCreated', function(annotation) {
-	console.log(annotation.text);
-	console.log(annotation.shapes[0].geometry);
-      });
-      var viewer = OpenSeadragon({
-        id:            "openseadragon",
-        prefixUrl:     "../images/",
-        showNavigator:  true,
-        showRotationControl: true,
-        tileSources:   {
-            Image: {
-              xmlns:    "http://schemas.microsoft.com/deepzoom/2008",
-              Url:      "../tiles/",
-              Format:   "jpg", 
-              Overlap:  "2", 
-              TileSize: "256",
-              Size: {
-                Height: "8000",
-                Width:  "8000"
-              }
-            }
+         
+        function annotate() {
+          var button = document.getElementById('map-annotate-button');
+          button.style.color = '#777';
+          anno.activateSelector(function() {
+            button.style.color = '#fff';
+          });
         }
-      });
-      anno.makeAnnotatable(viewer);
-      anno.activateSelector();
-    </script>
-  </body>
+         
+        anno.addHandler('onAnnotationCreated', function(annotation) {
+          console.log(annotation.text);
+          console.log(annotation.shapes[0].geometry);
+        });
+         
+        var viewer = OpenSeadragon({
+            id:            "openseadragon",
+            prefixUrl:     "../images/",
+            debugMode:          false,
+	    showNavigator:  	true,
+	    showRotationControl: true,
+            collectionMode:       true,
+            collectionRows:       3, 
+            collectionTileSize:   4096,
+            collectionTileMargin: 256,
+            tileSources: tileSources
+        });
+        anno.makeAnnotatable(viewer);
+        anno.activateSelector();1    
+      </script>
+   </body>
 </html>
+
