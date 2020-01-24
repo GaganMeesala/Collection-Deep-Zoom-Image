@@ -20,9 +20,11 @@
       <div class="demoarea">
          <div id="openseadragon" class="openseadragon">
          </div>
+         <!--
          <button onclick="anno.activateSelector();" href="#">
          ADD ANNOTATION
          </button>
+         --> 
       </div>
       <script type="text/javascript">
          var imageData = [
@@ -127,15 +129,7 @@
         var tileSources = imageData.map(function(image) {
           return tileSourceFromData(image.xml, image.filesUrl);
         });
-         
-        function annotate() {
-          var button = document.getElementById('map-annotate-button');
-          button.style.color = '#777';
-          anno.activateSelector(function() {
-            button.style.color = '#fff';
-          });
-        }
-         
+
         anno.addHandler('onAnnotationCreated', function(annotation) {
           console.log(annotation.text);
           console.log(annotation.shapes[0].geometry);
@@ -148,13 +142,16 @@
 	    showNavigator:  	true,
 	    showRotationControl: true,
             collectionMode:       true,
-            collectionRows:       3, 
+            collectionRows:       3,
             collectionTileSize:   4096,
-            collectionTileMargin: 256,
+            collectionTileMargin: 1024,
+	    visibilityRatio: 1.0,
+	    maxZoomPixelRatio: 5,
+	    immediateRender: true,
             tileSources: tileSources
         });
         anno.makeAnnotatable(viewer);
-        anno.activateSelector();1    
+        anno.activateSelector();
       </script>
    </body>
 </html>
