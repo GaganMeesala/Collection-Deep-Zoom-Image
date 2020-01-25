@@ -19,8 +19,8 @@ body {
  */
 .openseadragon
 {
-    height:     667px;
-    border:     1px solid black;
+    height:     645px;
+   /* border:     1px solid black; */
     color:      #333; /* text color for messages */
     background-color: black;
 }
